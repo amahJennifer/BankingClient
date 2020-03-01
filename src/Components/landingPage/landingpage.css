@@ -1,0 +1,24 @@
+.landingPage{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    width:80%;
+    margin-left:12rem;
+    margin-top:3rem;
+}
+.landingPageText{
+    font-family: 'Poppins';
+    font-size: 25px;
+    font-style: italic;
+    margin-bottom:1rem;
+}
+.buttonContainer{
+    margin-top:2rem;
+}
+.welcomeButton{
+    background-color: hsl(180, 66%, 49%);
+    border-radius: 10px;
+    padding:0.5rem;
+}
+
+

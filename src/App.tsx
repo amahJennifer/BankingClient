@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import "./App.css";
+import { Switch, Route } from "react-router-dom"
+import {NavBar} from "./Components/navbar/NavBar"
+import { LandingPage } from './Components/landingPage/LandingPage'
+import Login from "./Components/Login"
+import Register from "./Components/Register"
+import AuthState from './context/auth/authContext'
+import setAuthToken from '../src/utils/setAuthToken'
+import AlertState from "./alert/alertState"
+import Alerts from "./Components/Alert"
+import DashBoard from "./Components/DashBoard"
+import PrivateRoute from "./Components/routing/PrivateRoute"
+// if (localStorage.token) {
+// 	setAuthToken(localStorage.token)
+// }
 const App = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+	return (
+		<AuthState>
+			<AlertState>
+				<NavBar />
+				<Alerts />
+				<Switch>
+					<Route exact path="/">
+						<LandingPage />
+					</Route>
+					<PrivateRoute exact path="/dashboard" component={DashBoard} />
+					{/* <DashBoard/> */}
+					<Route exact path="/login">
+						<Login />
+					</Route>
+					<Route exact path="/register">
+						<Register />
+					</Route>
+				</Switch>
+			</AlertState>
+		</AuthState>
+	);
+};
 
 export default App;

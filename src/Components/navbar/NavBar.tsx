@@ -1,0 +1,68 @@
+import React, { Fragment, useContext } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { useAuthContext } from "../../context/auth/authContext";
+import "../../Components/navbar/navbar.css";
+
+export const NavBar = () => {
+	const history = useHistory();
+	console.log(useAuthContext());
+	const {
+		state: { isAuthenticated, user },
+		logOut
+	} = useAuthContext();
+	const logOuts = () => {
+		logOut();
+		history.push("/");
+	};
+
+	const authLinks = (
+		<Fragment>
+			<li>
+				Hello{user?.firstName}
+				<a href="#">
+					<i className=" fas fa-sign-out-alt"></i>
+					<span className="hide-sm">Logout</span>
+				</a>
+			</li>
+			<li className="nav_list" onClick={logOuts}>
+				<a href="#!">Logout</a>
+			</li>
+		</Fragment>
+	);
+	const guestLinks = (
+		<Fragment>
+			<li className="nav_list">
+				<Link to="/register">
+				Register
+				</Link>
+			</li>
+			<li className="nav_list">
+				<Link to="/login">
+					Login
+				</Link>
+			</li>
+		</Fragment>
+	);
+
+	return (
+		<nav className="nav">
+			<a className="logo" href="#">
+				<h3>JustSave</h3>
+			</a>
+			<ul className="nav_list_container_services">
+				<li className="nav_list">
+					<a href="#">Services</a>
+				</li>
+				<li className="nav_list">
+					<a href="#">About</a>
+				</li>
+			</ul>
+			<i className="fas fa-bars"></i>
+			<ul className="nav_list_container">
+				{isAuthenticated ? authLinks : guestLinks}
+
+				<button className="navButton">Signup</button>
+			</ul>
+		</nav>
+	);
+};

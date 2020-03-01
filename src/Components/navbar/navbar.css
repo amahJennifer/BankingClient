@@ -1,0 +1,46 @@
+
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 10vh;
+  padding:2rem;
+  background :rgba(200, 194, 194, 0.363);
+  box-shadow: 1px;
+}
+
+.nav_list_container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav_list_container_services {
+  display: flex;
+  align-items: center;
+  margin-right:55rem;
+}
+.nav_list {
+  color: #c4c9d9;
+  margin-right: 50px;
+  justify-content: flex-start;
+}
+.navButton{
+    background-color: hsl(180, 66%, 49%);
+    color:white;
+    border-radius: 8px;
+    padding :2px;
+    width:70px;
+
+}
+
+.logo{
+    margin-top:25px;
+    color:black;
+    
+}
+a{
+    color:grey
+}
+
+
