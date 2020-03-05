@@ -3,13 +3,13 @@ import "./App.css";
 import { Switch, Route } from "react-router-dom"
 import {NavBar} from "./Components/navbar/NavBar"
 import { LandingPage } from './Components/landingPage/LandingPage'
-import Login from "./Components/Login"
-import Register from "./Components/Register"
+import Login from "./Components/login/Login"
+import Register from "./Components/register/Register"
 import AuthState from './context/auth/authContext'
 import setAuthToken from '../src/utils/setAuthToken'
 import AlertState from "./alert/alertState"
 import Alerts from "./Components/Alert"
-import DashBoard from "./Components/DashBoard"
+import DashBoard from "./Components/Dashboard/DashBoard"
 import PrivateRoute from "./Components/routing/PrivateRoute"
 // if (localStorage.token) {
 // 	setAuthToken(localStorage.token)

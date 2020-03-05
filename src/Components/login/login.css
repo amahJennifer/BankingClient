@@ -1,0 +1,28 @@
+.loginForm{
+  display:flex;
+  flex-direction:column;
+}
+.loginForm form{
+  display:flex;
+  flex-direction:column;
+  background:white;
+
+}
+
+.loginForm input{
+  display:flex;
+  flex-direction:column;
+  background:white;
+  margin-top:1rem;
+  height:3rem;
+  width:30rem
+  
+}
+.loginForm h1{
+  margin-bottom:20px;
+  color:#330867;
+}
+.loginForm label{
+color:#330867;
+}
+

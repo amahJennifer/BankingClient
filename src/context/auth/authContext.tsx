@@ -29,7 +29,7 @@ interface IState {
 	token: string;
 	isAuthenticated: boolean;
 	loading: boolean;
-	user: { firstName: string };
+	user: { firstName: string,balance:number };
 	error: string;
 }
 

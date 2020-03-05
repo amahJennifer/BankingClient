@@ -5,10 +5,11 @@ import React, {
 	FormEvent,
 	useEffect
 } from "react";
-import welcomeImage from "./landingPage/home.svg";
-import { useAuthContext } from "../context/auth/authContext";
-import AlertContext from "../alert/alertContext";
+import welcomeImage from "../landingPage/home.svg";
+import { useAuthContext } from "../../../src/context/auth/authContext";
+import AlertContext from "../../alert/alertContext";
 import { useHistory } from "react-router";
+import "./login.css"
 const Login = () => {
 	const {
 		state: { error, isAuthenticated },
@@ -19,16 +20,7 @@ const Login = () => {
 	const { setAlert } = useContext(AlertContext);
 	const history = useHistory();
 
-	// useEffect(() => {
-	// 	if (isAuthenticated) {
-	// 		console.log("khjgfhjfhgfhgfh");
-	// 		history.push("./dashboard");
-	// 	}
 
-	// 	if (error) {
-	// 		setAlert(error, "danger");
-	// 	}
-	// }, [error]);
 	useEffect(() => {
 		if (isLoggedIn) {
 			console.log(isLoggedIn);
@@ -64,7 +56,8 @@ const Login = () => {
 				<img src={welcomeImage} />
 			</div>
 			<div className="landingPageText">
-				<div className="LoginForm">
+				<div className="loginForm">
+					<h1>Login</h1>
 					<form onSubmit={handleSubmit}>
 						<label htmlFor="email">
 							Email:
@@ -74,7 +67,6 @@ const Login = () => {
 							Password:
 							<input name="password" type="password" onChange={handleChange} />
 						</label>
-
 						<input type="submit" value="Register" />
 					</form>
 				</div>
