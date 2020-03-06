@@ -1,0 +1,208 @@
+.Container{
+  max-width:1440px;
+  display: flex;
+height:100vh;
+
+}
+
+.new-container {
+  height: 100vh;
+  display: flex;
+}
+
+.bordered {
+border: 1px solid #000;
+}
+
+.cash{
+display :flex;
+flex-direction: column;
+text-align: center;
+font-size: large;
+/* font-family: cursive; */
+width:1440px;
+align-items: center;
+}
+.sideButton{
+  flex:1;
+  margin-top:4rem;
+  margin-left: 3rem;
+  margin-bottom:40rem;
+  box-shadow:0px 2px 6px 0px rgba(0,0,0,0.75);
+  background: #330867;
+  border-radius: 5px;
+  
+  
+}
+
+.sideButton img{
+ width: 100px;
+ margin-left:0.7rem;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+} 
+
+
+.main {
+  flex: 15;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .depositButton{
+  background:#330867;
+  width:40rem;
+  padding:1rem;
+  margin:1rem;
+  color:white;
+  border:none;
+  box-shadow:10px  gray ;
+
+} */
+.depositButton {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  background:#330867;
+  width:40rem;
+  padding:1rem;
+  margin:1rem;
+  color:white;
+  border:none;
+  box-shadow:10px  gray;
+  border-radius: 5px;
+}
+.depositButton:hover, .depositButton:focus, .depositButton:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.withdrawButton{
+   display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  background: red;
+  width:40rem;
+  padding:1rem;
+  margin:1rem;
+  color:white;
+  border:none;
+border-radius: 5px;
+}
+.withdrawButton:hover, .withdrawButton:focus, .withdrawButton:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.cashDetail{
+  /* display:flex;
+  width:1000px;
+  margin-left:10rem;
+  flex-direction: column;
+  flex:10;
+   align-content: center; 
+  justify-content: center;
+  height:100vh; */
+  
+  /* display: flex; */
+
+}
+
+.cashText{
+  text-align: center;
+
+}
+.cashText h2{
+  font-size: 5rem;
+  margin-top:3rem
+}
+.cashText p{
+  font-size: 3rem;
+  margin-top:3rem;
+}
+.buttons{
+display :flex;
+width:45rem;
+justify-content: space-between;
+align-items: center;
+margin-top:3rem;
+
+
+}
+
+.transaction{
+  width: 50%;
+  display:flex;
+  justify-content: space-between;
+  justify-content: space-around;
+  margin-top:2rem;
+  margin:3rem 15rem 0 15rem;
+  font-size:1.5rem;
+  padding:1rem;
+  color:#330867;
+  max-height: 20rem;
+  overflow-y: scroll;
+/* box-shadow: black 0.75px 6px; */
+}
+
+/* .tableHead{
+  position: sticky;
+  top:0;
+} */
+/* .transactionList{
+  display:flex;
+  justify-content: space-between;
+   justify-content: space-around;
+  margin-top:2rem;
+  margin:3rem 15rem 0 15rem;
+  font-size:2rem
+} */
+
+
+.transaction-table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.transaction-table td, .transaction-table th {
+  
+  padding: 8px;
+}
+
+.transaction-table tr:nth-child(even){background-color: #ffffff; color: #000000}
+.transaction-table tr:nth-child(odd){background-color: #ffffff; color: #000000}
+
+.transaction-table tr:hover {background-color: #ddd;}
+
+.transaction-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #bcb3c8;
+  color:#330867;
+}
+
+
+
+
+

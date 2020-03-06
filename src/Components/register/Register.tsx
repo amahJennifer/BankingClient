@@ -5,10 +5,11 @@ import React, {
 	FormEvent,
 	useEffect
 } from "react";
-import welcomeImage from "./landingPage/home.svg";
-import { useAuthContext } from "../context/auth/authContext";
-import AlertContext from "../alert/alertContext";
+import welcomeImage from "../landingPage/home.svg"
+import { useAuthContext } from "../../context/auth/authContext";
+import AlertContext from "../../alert/alertContext";
 import { useHistory } from "react-router";
+import "./register.css"
 
 const Register = (props: any) => {
 	// const authContext = useContext(AuthContext);
@@ -78,8 +79,9 @@ const Register = (props: any) => {
 				<img src={welcomeImage} />
 			</div>
 			<div className="landingPageText">
-				<div className="LoginForm">
+				<div className="registerForm">
 					<form onSubmit={handleSubmit}>
+						<h1>Create an Account </h1>
 						<label htmlFor="firstName">
 							FirstName:
 							<input name="firstName" type="text" onChange={handleChange} />

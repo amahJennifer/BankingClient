@@ -1,7 +1,6 @@
 import React, { useReducer, createContext, Context } from "react";
 import axios from "axios";
 import authReducer from "./authReducer";
-import setAuthToken from "../../utils/setAuthToken";
 import {
 	REGISTER_SUCCESS,
 	REGISTER_FAIL,
@@ -10,6 +9,8 @@ import {
 	LOGIN_SUCCESS,
 	LOGIN_FAIL,
 	LOGOUT,
+	DEPOSIT_SUCCESS,
+	DEPOSIT_FAIL,
 	CLEAR_ERRORS
 } from "../type";
 
@@ -24,12 +25,16 @@ type loginObj = {
 	email: string;
 	password: string;
 };
-
-interface IState {
+type depositObj = {
+	type: string;
+	amount:Number;
+};
+export interface IState {
 	token: string;
 	isAuthenticated: boolean;
 	loading: boolean;
-	user: { firstName: string };
+	user: { firstName: string, balance: number };
+	userTransactions:[{amount:number,balance:number,transactionType:string}]
 	error: string;
 }
 
@@ -39,6 +44,7 @@ interface AuthContextType {
 	loadUser: () => Promise<void> | null;
 	login: (object: loginObj) => Promise<void> | null;
 	logOut: () => Promise<void> | null;
+	depositFunc: (object: depositObj) => Promise<void> | null;
 }
 
 const initialState = {
@@ -46,13 +52,10 @@ const initialState = {
 	isAuthenticated: false,
 	loading: true,
 	user: {},
+	userTransactions: [],
 	error: "null"
 };
 
-// interface IAuthState
-// 	extends Context<{ state: { isAuthenticated: any; user: any }; LogOut: any }> {
-// 	children?: JSX.Element | JSX.Element[];
-// }
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
@@ -76,6 +79,8 @@ interface Iform {
 const AuthState = (props: React.PropsWithChildren<unknown>) => {
 	const [state, dispatch] = useReducer(authReducer, initialState);
 
+
+	//register User 
 	const register = async (formData: obj) => {
 		const config = {
 			headers: {
@@ -148,7 +153,7 @@ const AuthState = (props: React.PropsWithChildren<unknown>) => {
 				payload: res.data
 			});
 
-			// loadUser();
+			
 		} catch (err) {
 			dispatch({
 				type: LOGIN_FAIL,
@@ -158,13 +163,41 @@ const AuthState = (props: React.PropsWithChildren<unknown>) => {
 		}
 	};
 
+
+
 	// logout User
 	const logOut = async () => {
 		dispatch({ type: LOGOUT });
 	};
+//deposit and withdraw
+	const depositFunc = async (depositData: depositObj) => {
+		const config = {
+			headers: {
+				"Content-Type": "application/json"
+			}
+		};
 
+
+		try {
+			const res = await axios.patch("http://localhost:3006/api/transaction",
+				depositData,
+			config);
+			dispatch({
+				type: DEPOSIT_SUCCESS,
+				payload:res.data
+			})
+			loadUser()
+
+		} catch (err) {
+			dispatch({
+				type: DEPOSIT_FAIL,
+				payload: err.response
+			});
+		}
+
+	}
 	return (
-		<AuthContext.Provider value={{ state, register, loadUser, login, logOut }}>
+		<AuthContext.Provider value={{ state, register, loadUser, login, logOut,depositFunc }}>
 			{props.children}
 		</AuthContext.Provider>
 	);

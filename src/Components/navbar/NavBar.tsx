@@ -17,15 +17,10 @@ export const NavBar = () => {
 
 	const authLinks = (
 		<Fragment>
-			<li>
-				Hello{user?.firstName}
-				<a href="#">
-					<i className=" fas fa-sign-out-alt"></i>
-					<span className="hide-sm">Logout</span>
-				</a>
-			</li>
-			<li className="nav_list" onClick={logOuts}>
-				<a href="#!">Logout</a>
+			<li style={{ padding: "10px" }}>Hello</li>
+			<li>{user?.firstName}</li>
+			<li className="nav_list" onClick={logOuts} style={{ padding: "10px" }}>
+			<a href="#" >Logout</a>
 			</li>
 		</Fragment>
 	);

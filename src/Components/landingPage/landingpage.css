@@ -6,19 +6,34 @@
     margin-left:12rem;
     margin-top:3rem;
 }
-.landingPageText{
-    font-family: 'Poppins';
-    font-size: 25px;
-    font-style: italic;
+.welcomeText h1{
+    font-size: 50px;
     margin-bottom:1rem;
 }
 .buttonContainer{
+    
     margin-top:2rem;
+    width:15rem;
+
 }
 .welcomeButton{
-    background-color: hsl(180, 66%, 49%);
-    border-radius: 10px;
-    padding:0.5rem;
+    display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+    background-color:#330867;
+    color:white;
+    border-radius:5px;
+    padding:1rem;
+}
+.welcomeButton:hover, .withdrawButton:focus, .withdrawButton:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 
