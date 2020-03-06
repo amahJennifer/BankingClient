@@ -159,10 +159,15 @@ margin-top:3rem;
   font-size:1.5rem;
   padding:1rem;
   color:#330867;
+  max-height: 20rem;
+  overflow-y: scroll;
 /* box-shadow: black 0.75px 6px; */
 }
 
-
+/* .tableHead{
+  position: sticky;
+  top:0;
+} */
 /* .transactionList{
   display:flex;
   justify-content: space-between;
