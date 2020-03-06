@@ -16,7 +16,8 @@ const DashBoard = () => {
 		loadUser();
 		// eslint-disable-next-line
 	}, []);
-const [modalShow, setModalShow] = React.useState(false);
+	const [modalShow, setModalShow] = React.useState(false);
+	const [wmodalShow, setWModalShow] = React.useState(false);
 	return (
 		<div className="new-container">
 			{/* <div className="sideButton">
@@ -40,10 +41,10 @@ const [modalShow, setModalShow] = React.useState(false);
 							show={modalShow}
 							onHide={() => setModalShow(false)}
 						/>
-						<WModal show={modalShow} onHide={() => setModalShow(false)} />
+						<WModal show={wmodalShow} onHide={() => setWModalShow(false)} />
 						<button
 							className="withdrawButton"
-							onClick={() => setModalShow(true)}
+							onClick={() => setWModalShow(true)}
 						>
 							Withdraw
 						</button>
