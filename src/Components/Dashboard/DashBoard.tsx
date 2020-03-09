@@ -1,8 +1,7 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useAuthContext } from "../../context/auth/authContext";
 import { withRouter } from "react-router";
 import "./dashboard.css";
-import transferImg from "../../transfer.svg";
 import MyVerticallyCenteredModal from "../Modal/Modal";
 import WithdrawModal from "../Modal/WModal";
 const DashBoard = () => {
@@ -18,16 +17,6 @@ const DashBoard = () => {
 	}, []);
 	const [modalShow, setModalShow] = React.useState(false);
 	const [wmodalShow, setWModalShow] = React.useState(false);
-	// const tableList = userTransactions.map((transaction) => {
-	// 	return (
-	// 		<>
-	// 				<tr>{transaction.amount}</tr>
-	// 			<tr>{transaction.balance}</tr>
-	// 			<tr>{transaction.transactionType}</tr>
-	// 			</>
-	// 	);
-
-	// })
 	return (
 		<div className="new-container">
 			<div className="main bordered">

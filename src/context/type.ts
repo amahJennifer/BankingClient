@@ -10,3 +10,5 @@ export const SET_ALERT = "SET_ALERT";
 export const REMOVE_ALERT= "REMOVE_ALERT";
 export const DEPOSIT_SUCCESS = "DEPOSIT_SUCCESS";
 export const DEPOSIT_FAIL = "DEPOSIT_FAIL";
+export const TRANSFER_SUCCESS = "DEPOSIT_SUCCESS";
+export const TRANSFER_FAIL = "DEPOSIT_FAIL";

@@ -13,17 +13,35 @@
 .registerForm input{
   display:flex;
   flex-direction:column;
-  background:white;
+  background:rgb(246, 238, 238);
   margin-top:1rem;
   height:3rem;
-  width:30rem
+  width:30rem;
+  border-radius: 10px;
+  border-style: hidden;
+  border-color: slategray;
+  text-indent: 15px;
+}
+
+input:focus {
+  /* border-style: hidden; */
+  background-color:white;
   
+
 }
 .registerForm h1{
   margin-bottom:20px;
-  color:#330867;
+  color:rgb(76, 69, 179);
 }
 .registerForm label{
-color:#330867;
+color:rgb(76, 69, 179);;
+}
+.registerForm button{
+height:50px;
+  background-color:rgb(76, 69, 179);
+  color:white;
+  margin-top:1rem;
+  border-radius: 10px;
+  border-style: hidden;
 }
 

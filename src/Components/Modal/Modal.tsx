@@ -5,8 +5,10 @@ import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import AlertContext from "../../alert/alertContext"
 import {useAuthContext} from "../../context/auth/authContext"
+import NestedModal from "./NestedModal"
 
 function MyVerticallyCenteredModal(props: any) {
+	const [successModal,setSuccessModal]=useState(false)
 	const { depositFunc } = useAuthContext();
 	const { setAlert } = useContext(AlertContext);
 	const [deposit, setDeposit] = useState({
@@ -29,6 +31,7 @@ function MyVerticallyCenteredModal(props: any) {
 	
 
 		depositFunc({ type, amount })
+setSuccessModal(true)
 	}
 	return (
 		<Modal
@@ -43,35 +46,34 @@ function MyVerticallyCenteredModal(props: any) {
 				</Modal.Title>
 			</Modal.Header>
 			<form onSubmit={handleSubmit}>
-			<Modal.Body>
-				
-						<InputGroup size="lg">
-					<InputGroup.Prepend>
-						<InputGroup.Text id="inputGroup-sizing-lg">
-							Enter Amount{" "}
-						</InputGroup.Text>
-					</InputGroup.Prepend>
-					<FormControl
+				<Modal.Body>
+					<InputGroup size="lg">
+						<InputGroup.Prepend>
+							<InputGroup.Text id="inputGroup-sizing-lg">
+								Enter Amount{" "}
+							</InputGroup.Text>
+						</InputGroup.Prepend>
+						<FormControl
 							aria-label="Large"
 							name="amount"
-						aria-describedby="inputGroup-sizing-sm"
+							aria-describedby="inputGroup-sizing-sm"
 							placeholder="100000000000"
 							type="number"
-						onChange={handleChange}
-					/>
-				</InputGroup>
-			
-			
-			</Modal.Body>
-				
-			<Modal.Footer>
-				<Button type="submit" variant="primary" >Deposit</Button>
-				<Button onClick={props.onHide} variant="danger">
-					Cancel
-				</Button>
+							onChange={handleChange}
+						/>
+					</InputGroup>
+					<NestedModal show={successModal} onHide={() => setSuccessModal(false)} />
+				</Modal.Body>
+
+				<Modal.Footer>
+					<Button type="submit" variant="primary">
+						Deposit
+					</Button>
+					<Button onClick={props.onHide} variant="danger">
+						Cancel
+					</Button>
 				</Modal.Footer>
-						</form>
-			
+			</form>
 		</Modal>
 	);
 }

@@ -11,6 +11,8 @@ import {
 	LOGOUT,
 	DEPOSIT_SUCCESS,
 	DEPOSIT_FAIL,
+	TRANSFER_SUCCESS,
+	TRANSFER_FAIL,
 	CLEAR_ERRORS
 } from "../type";
 
@@ -29,6 +31,12 @@ type depositObj = {
 	type: string;
 	amount:Number;
 };
+type transferObj = {
+	type: string;
+	amount: Number;
+	accountNo: string;
+};
+
 export interface IState {
 	token: string;
 	isAuthenticated: boolean;
@@ -45,6 +53,7 @@ interface AuthContextType {
 	login: (object: loginObj) => Promise<void> | null;
 	logOut: () => Promise<void> | null;
 	depositFunc: (object: depositObj) => Promise<void> | null;
+	transfer: (object: transferObj) => Promise<void> | null;
 }
 
 const initialState = {
@@ -196,8 +205,39 @@ const AuthState = (props: React.PropsWithChildren<unknown>) => {
 		}
 
 	}
+
+	//Transfer
+	const transfer = async (transferData: transferObj) => {
+		const config = {
+			headers: {
+				"Content-Type": "application/json"
+			}
+
+		};
+try {
+	const res = await axios.post(
+		"http://localhost:3006/api/transfer",
+		transferData,
+		config
+	);
+	dispatch({
+		type: TRANSFER_SUCCESS,
+		payload: res.data
+	});
+	loadUser();
+} catch (err) {
+	dispatch({
+		type: TRANSFER_FAIL,
+		payload: err.response
+	});
+}
+
+	}
+
+
+	
 	return (
-		<AuthContext.Provider value={{ state, register, loadUser, login, logOut,depositFunc }}>
+		<AuthContext.Provider value={{ state, register, loadUser, login, logOut,depositFunc,transfer }}>
 			{props.children}
 		</AuthContext.Provider>
 	);

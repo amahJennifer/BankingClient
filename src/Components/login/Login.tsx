@@ -49,7 +49,7 @@ const Login = () => {
 			setIsLoggedIn(true);
 		}
 	};
-
+   
 	return (
 		<div className="landingPage">
 			<div className="landingImage">
@@ -67,7 +67,7 @@ const Login = () => {
 							Password:
 							<input name="password" type="password" onChange={handleChange} />
 						</label>
-						<input type="submit" value="Register" />
+						<button type="submit">Login</button>
 					</form>
 				</div>
 			</div>
