@@ -106,7 +106,7 @@ const Register = (props: any) => {
 								onChange={handleChange}
 							/>
 						</label>
-						<input type="submit" value="Register" />
+						<button type="submit" >Register</button>
 					</form>
 				</div>
 			</div>

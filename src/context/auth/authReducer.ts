@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import {
 	REGISTER_SUCCESS,
 	REGISTER_FAIL,
@@ -8,19 +8,12 @@ import {
 	LOGIN_FAIL,
 	LOGOUT,
 	CLEAR_ERRORS,
-	DEPOSIT_SUCCESS
+	DEPOSIT_SUCCESS,
+	TRANSFER_SUCCESS
 } from "../type";
-import transitions from "@material-ui/core/styles/transitions";
 import {IState} from './authContext'
 
-// export interface Istate {
-// 	token: string;
-// 	isAuthenticated: boolean | null;
-// 	loading: boolean;
-// 	user: any;
-// 	error: string | null;
-// 	userTransactions: object[]
-// }
+
 export default (state: IState, action: any) => {
 	switch (action.type) {
 		case USER_LOADED:
@@ -44,6 +37,7 @@ export default (state: IState, action: any) => {
 			};
 		case REGISTER_SUCCESS:
 		case LOGIN_SUCCESS:
+
 			localStorage.setItem("token", action.payload.token);
 			//console.log(localStorage.setItem("token", action.payload));
 			return {
@@ -56,6 +50,7 @@ export default (state: IState, action: any) => {
 				userTransactions: action.payload.userTransactions
 			};
 		case DEPOSIT_SUCCESS:
+			case TRANSFER_SUCCESS:
 			console.log(action.payload);
 			return {
 				...state,

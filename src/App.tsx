@@ -11,6 +11,7 @@ import AlertState from "./alert/alertState"
 import Alerts from "./Components/Alert"
 import DashBoard from "./Components/Dashboard/DashBoard"
 import PrivateRoute from "./Components/routing/PrivateRoute"
+import Transfer from "../src/Components/Transfer/Transfer"
 // if (localStorage.token) {
 // 	setAuthToken(localStorage.token)
 // }
@@ -31,6 +32,9 @@ const App = () => {
 					</Route>
 					<Route exact path="/register">
 						<Register />
+					</Route>
+					<Route exact path="/transfer">
+						<Transfer />
 					</Route>
 				</Switch>
 			</AlertState>
