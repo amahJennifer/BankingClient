@@ -20,6 +20,7 @@ const App = () => {
 		<AuthState>
 			<AlertState>
 				<NavBar />
+				
 				<Alerts />
 				<Switch>
 					<Route exact path="/">
