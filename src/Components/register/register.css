@@ -45,3 +45,18 @@ height:50px;
   border-style: hidden;
 }
 
+@media only screen and (max-width: 768px) {
+
+.registerForm{
+  width:100%;
+  margin:auto;
+  
+}
+
+.landingText{
+  margin:0
+}
+
+
+
+}

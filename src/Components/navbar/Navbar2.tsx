@@ -1,9 +1,9 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useAuthContext } from "../../context/auth/authContext";
 import "../../Components/navbar/navbar2.css";
-import hamburger from "./hamburger.svg";
-export const NavBar = () => {
+
+export const NavBar2 = () => {
 	const history = useHistory();
 	console.log(useAuthContext());
 	const {
@@ -15,11 +15,8 @@ export const NavBar = () => {
 		history.push("/");
 	};
 
-	const [show, setShow] = useState(false)
 	const authLinks = (
-
-
-		<Fragment>
+		<>
 			<li className="nav_list">
 				<Link to="/transfer">Transfer</Link>
 			</li>
@@ -28,7 +25,7 @@ export const NavBar = () => {
 			<li className="nav_list" onClick={logOuts} style={{ padding: "10px" }}>
 				<a href="#">Logout</a>
 			</li>
-		</Fragment>
+		</>
 	);
 	const guestLinks = (
 		<Fragment>
@@ -37,33 +34,25 @@ export const NavBar = () => {
 			</li>
 			<li className="nav_list">
 				<Link to="/login">Login</Link>
-			</li>	
+			</li>
+			<button className="navButton">Signup</button>
 		</Fragment>
 	);
 
 	return (
-		<nav className="nav">
-			<a className="logo" href="#">
+		<nav className="nav1">
+			<a className="logo1" href="#">
 				<h3>JustSave</h3>
 			</a>
-			<li className="hamburger" role="button" onClick={() => setShow(!show)}>
-				<img src={hamburger} />
-			</li>
-			<ul className="nav_list_container_services">
-				<li className="nav_list">
+			<ul className="nav_list_container_services1">
+				<li className="nav_list1">
 					<a href="#">About</a>
 				</li>
 			</ul>
 
-			<ul className="nav_list_container">
+			<ul className="nav_list_container1">
 				{isAuthenticated ? authLinks : guestLinks}
 			</ul>
-
-			<div className={`ham-nav ${show ? 'show' : 'hide'}`}>
-				<ul className="ham_nav_list_container">
-					{isAuthenticated ? authLinks : guestLinks}
-				</ul>
-			</div>
 		</nav>
 	);
 };
